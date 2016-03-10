@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: bodies
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  brand_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class BodiesController < ApplicationController
   def index
     @brand = Brand.find(params[:brand_id])
@@ -5,7 +16,7 @@ class BodiesController < ApplicationController
   end
 
   def show
-    @body = Body.find params[:id]
+    redirect_to brand_body_engines_path params[:brand_id], params[:id]
   end
 
   def new

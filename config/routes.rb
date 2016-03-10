@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :brands do
-    resources :bodies
+    resources :bodies do
+      resources :engines
+    end
   end
 end

@@ -1,0 +1,2 @@
+class EnginePolicy < BodyPolicy
+end
