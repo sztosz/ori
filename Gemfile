@@ -3,6 +3,7 @@ ruby '2.3.0'
 
 gem 'annotate'
 gem 'bootstrap-sass'
+gem 'bootswatch-rails'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'figaro'
