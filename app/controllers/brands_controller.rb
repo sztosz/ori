@@ -14,7 +14,6 @@ class BrandsController < ApplicationController
 
   def create
     @brand = Brand.new brand_params
-    # raise ActiveRecord::RecordInvalid 'bla'
     authorize @brand
     if @brand.save!
       redirect_to action: 'index'
