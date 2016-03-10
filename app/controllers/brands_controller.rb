@@ -4,7 +4,7 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @brand = Brand.find params[:id]
+    redirect_to brand_bodies_path params[:id]
   end
 
   def new
@@ -15,7 +15,7 @@ class BrandsController < ApplicationController
   def create
     @brand = Brand.new brand_params
     authorize @brand
-    if @brand.save!
+    if @brand.save
       redirect_to action: 'index'
     else
       render :new
