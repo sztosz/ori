@@ -1,0 +1,2 @@
+class DumpPolicy < EcuPolicy
+end

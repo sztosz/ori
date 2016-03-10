@@ -11,5 +11,6 @@
 
 class Ecu < ActiveRecord::Base
   belongs_to :engine
+  has_many :dumps
   validates :name, :engine_id, presence: true
 end

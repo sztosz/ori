@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :brands do
     resources :bodies do
       resources :engines do
-        resources :ecus
+        resources :ecus do
+          resources :dumps
+        end
       end
     end
   end

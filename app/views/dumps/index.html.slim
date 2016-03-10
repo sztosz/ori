@@ -1,0 +1,33 @@
+ol.breadcrumb
+  li = link_to 'Home', root_path
+  li = link_to 'Brands', brands_path
+  li = link_to 'Bodies', brand_bodies_path(@ecu.engine.body)
+  li = link_to 'Engines', brand_body_engines_path(@ecu.engine.body.brand, @ecu.engine.body, @ecu.engine)
+  li = link_to 'Ecus', brand_body_engine_ecus_path(@ecu.engine.body.brand, @ecu.engine.body, @ecu.engine, @ecu)
+  li.active Dumps
+
+.row.col-md-12
+  p.lead = @ecu.name
+
+.row.col-md-12
+  = link_to :new, new_brand_body_engine_ecu_dump_path, { class: 'btn btn-primary' }
+
+.row.col-md-12
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th ID
+        th HW
+        th SW
+        th Download
+        th Edit
+        th Remove
+    tbody
+      - for dump in @dumps do
+        tr
+          td = dump.id
+          td = dump.hw
+          td = dump.sw
+          td = link_to :Download, brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), class: 'btn btn-default'
+          td = link_to :Edit, edit_brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), class: 'btn btn-primary'
+          td = link_to :Remove, brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), method: :delete, class: 'btn btn-danger'

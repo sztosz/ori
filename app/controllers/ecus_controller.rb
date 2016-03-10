@@ -16,7 +16,7 @@ class EcusController < ApplicationController
   end
 
   def show
-    @ecu = Ecu.find params[:id]
+    redirect_to brand_body_engine_ecu_dumps_path params[:brand_id], params[:engine_id], params[:id]
   end
 
   def new

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EcuPolicy do
+RSpec.describe DumpPolicy do
   let(:user) { User.new }
 
   subject { described_class }
