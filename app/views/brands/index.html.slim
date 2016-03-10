@@ -1,0 +1,4 @@
+p= link_to :new, new_brand_path
+
+- for brand in @brands do
+  p = link_to brand.name, brand_path(brand)
