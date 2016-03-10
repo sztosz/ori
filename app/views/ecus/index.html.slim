@@ -17,7 +17,7 @@ ol.breadcrumb
       tr
         th ID
         th Name
-        th Originals
+        th Dumps
         th Edit
         th Remove
     tbody
@@ -25,6 +25,6 @@ ol.breadcrumb
         tr
           td = ecu.id
           td = ecu.name
-          td = link_to :Originals, brand_body_engines_path(ecu.engine.body.brand, ecu.engine.body), class: 'btn btn-default'
+          td = link_to :Dumps, brand_body_engines_path(ecu.engine.body.brand, ecu.engine.body), class: 'btn btn-default'
           td = link_to :Edit, edit_brand_body_engine_ecu_path(ecu.engine.body.brand, ecu.engine.body, ecu.engine, ecu), class: 'btn btn-primary'
           td = link_to :Remove, brand_body_engine_ecu_path(ecu.engine.body.brand, ecu.engine.body, ecu.engine, ecu), method: :delete, class: 'btn btn-danger'
