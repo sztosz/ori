@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BrandPolicy do
+RSpec.describe BodyPolicy do
   let(:user) { User.new }
 
   subject { described_class }

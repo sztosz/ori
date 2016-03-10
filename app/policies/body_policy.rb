@@ -1,0 +1,2 @@
+class BodyPolicy < BrandPolicy
+end

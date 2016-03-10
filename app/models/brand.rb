@@ -9,5 +9,6 @@
 #
 
 class Brand < ActiveRecord::Base
+  has_many :bodies
   validates :name, presence: true
 end

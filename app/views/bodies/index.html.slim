@@ -1,0 +1,4 @@
+p= link_to :new, new_brand_body_path
+
+- for body in @bodies do
+  p = link_to body.name, brand_body_path(body.brand, body)
