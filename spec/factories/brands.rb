@@ -9,7 +9,7 @@
 #
 
 FactoryGirl.define do
-  factory :brands do
+  factory :brand do
     name 'MyString'
   end
 end
