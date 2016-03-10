@@ -16,7 +16,7 @@ class EnginesController < ApplicationController
   end
 
   def show
-    @engine = Engine.find params[:id]
+    redirect_to brand_body_engine_ecus_path params[:brand_id], params[:id]
   end
 
   def new

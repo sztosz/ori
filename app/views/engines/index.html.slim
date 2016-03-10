@@ -24,6 +24,6 @@ ol.breadcrumb
         tr
           td = engine.id
           td = engine.name
-          td = link_to :Ecus, brand_body_engines_path(engine.body.brand, engine.body), class: 'btn btn-default'
+          td = link_to :Ecus, brand_body_engine_ecus_path(engine.body.brand, engine.body, engine), class: 'btn btn-default'
           td = link_to :Edit, edit_brand_body_engine_path(engine.body.brand, engine.body, engine), class: 'btn btn-primary'
           td = link_to :Remove, brand_body_engine_path(engine.body.brand, engine.body, engine), method: :delete, class: 'btn btn-danger'

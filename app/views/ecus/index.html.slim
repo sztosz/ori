@@ -1,0 +1,30 @@
+ol.breadcrumb
+  li = link_to 'Home', root_path
+  li = link_to 'Brands', brands_path
+  li = link_to 'Bodies', brand_bodies_path(@engine.body)
+  li = link_to 'Engines', brand_body_engines_path(@engine.body.brand, @engine.body)
+  li.active Ecu
+
+.row.col-md-12
+  p.lead = @engine.name
+
+.row.col-md-12
+  = link_to :new, new_brand_body_engine_ecu_path, { class: 'btn btn-primary' }
+
+.row.col-md-12
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th ID
+        th Name
+        th Originals
+        th Edit
+        th Remove
+    tbody
+      - for ecu in @ecus do
+        tr
+          td = ecu.id
+          td = ecu.name
+          td = link_to :Originals, brand_body_engines_path(ecu.engine.body.brand, ecu.engine.body), class: 'btn btn-default'
+          td = link_to :Edit, edit_brand_body_engine_ecu_path(ecu.engine.body.brand, ecu.engine.body, ecu.engine, ecu), class: 'btn btn-primary'
+          td = link_to :Remove, brand_body_engine_ecu_path(ecu.engine.body.brand, ecu.engine.body, ecu.engine, ecu), method: :delete, class: 'btn btn-danger'

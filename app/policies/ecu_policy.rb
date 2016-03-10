@@ -1,0 +1,2 @@
+class EcuPolicy < EnginePolicy
+end
