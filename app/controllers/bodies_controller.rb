@@ -27,7 +27,7 @@ class BodiesController < ApplicationController
   def create
     @body = Body.new body_params
     authorize @body
-    if @body.save!
+    if @body.save
       redirect_to action: 'index'
     else
       render :new
