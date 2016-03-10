@@ -1,6 +1,7 @@
 class BodiesController < ApplicationController
   def index
-    @bodies = Brand.find(params[:brand_id]).bodies
+    @brand = Brand.find(params[:brand_id])
+    @bodies = @brand.bodies
   end
 
   def show
@@ -8,7 +9,7 @@ class BodiesController < ApplicationController
   end
 
   def new
-    @body = Body.new
+    @body = Body.new(brand: Brand.find(params[:brand_id]))
     authorize @body
   end
 
@@ -41,7 +42,7 @@ class BodiesController < ApplicationController
     @body = Body.find params[:id]
     authorize @body
     @body.destroy
-    redirect_to brands_path
+    redirect_to brand_bodies_path
   end
 
   def body_params

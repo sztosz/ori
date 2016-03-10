@@ -1,4 +1,28 @@
-p= link_to :new, new_brand_body_path
+ol.breadcrumb
+  li = link_to 'Home', root_path
+  li = link_to 'Brands', brands_path
+  li.active Bodies
 
-- for body in @bodies do
-  p = link_to body.name, brand_body_path(body.brand, body)
+.row.col-md-12
+  /p.lead = @bodies.first.brand.name
+
+.row.col-md-12
+  = link_to :new, new_brand_body_path, { class: 'btn btn-primary' }
+
+.row.col-md-12
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th ID
+        th Name
+        th Engines
+        th Edit
+        th Remove
+    tbody
+      - for body in @bodies do
+        tr
+          td = body.id
+          td = body.name
+          td = link_to :Engines, brand_body_path(body.brand, body), class: 'btn btn-default'
+          td = link_to :Edit, edit_brand_body_path(body.brand, body), class: 'btn btn-primary'
+          td = link_to :Remove, brand_body_path(body.brand, body), method: :delete, class: 'btn btn-danger'
