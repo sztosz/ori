@@ -23,5 +23,5 @@ ol.breadcrumb
           td = dump.ecu.name
           td = dump.hw
           td = dump.sw
-          td Size
+          td = number_to_human_size(dump.content_size)
           td = link_to :Download, brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), class: 'btn btn-default'
