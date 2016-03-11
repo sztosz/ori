@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
-gem 'annotate'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'carrierwave'
@@ -10,7 +9,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'figaro'
 gem 'file_validators'
-gem 'goldiloader'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg'
@@ -25,6 +23,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
+  gem 'annotate'
   gem 'better_errors'
   gem 'rails_layout'
   gem 'spring'
@@ -45,5 +44,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'rails-perftest'
+  gem 'ruby-prof'
   gem 'rubocop'
 end

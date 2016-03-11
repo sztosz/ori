@@ -1,6 +1,6 @@
 class DumpTableController < ApplicationController
   def index
-    @dumps = Dump.eager_load(ecu: { engine: { body: :brand } }).all
+    @dumps = Dump.all
   end
 
   def search
