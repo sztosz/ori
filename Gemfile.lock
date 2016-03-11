@@ -110,6 +110,9 @@ GEM
       mime-types (>= 1.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    goldiloader (0.0.10)
+      activerecord (>= 3.2, < 5.1)
+      activesupport (>= 3.2, < 5.1)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -276,6 +279,7 @@ DEPENDENCIES
   faker
   figaro
   file_validators
+  goldiloader
   jbuilder (~> 2.0)
   jquery-rails
   launchy
