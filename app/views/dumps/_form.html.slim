@@ -1,4 +1,5 @@
-= simple_form_for [@dump.ecu.engine.body.brand, @dump.ecu.engine.body, @dump.ecu.engine, @dump.ecu, @dump] do |f|
+= simple_form_for [@dump.ecu.engine.body.brand, @dump.ecu.engine.body, @dump.ecu.engine, @dump.ecu, @dump], multipart: true do |f|
   = f.input :hw, label: 'HW'
   = f.input :sw, label: 'SW'
+  = f.input :content, as: :file, label: 'File'
   = f.button :submit, class: 'btn-primary'

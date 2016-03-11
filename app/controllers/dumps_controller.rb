@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  hw         :string
 #  sw         :string
+#  file       :integer          not null
 #
 
 class DumpsController < ApplicationController
@@ -17,7 +18,8 @@ class DumpsController < ApplicationController
   end
 
   def show
-    @dump = Dump.find params[:id]
+    dump = Dump.find params[:id]
+    send_data dump.content.file.read, filename: "#{dump.hw}-#{dump.sw}"
   end
 
   def new
@@ -58,6 +60,6 @@ class DumpsController < ApplicationController
   end
 
   def dump_params
-    params.require(:dump).permit(:hw, :sw).merge(ecu_id: params[:ecu_id])
+    params.require(:dump).permit(:hw, :sw, :content).merge(ecu_id: params[:ecu_id])
   end
 end

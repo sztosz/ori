@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  hw         :string
 #  sw         :string
+#  file       :integer          not null
 #
 
 require 'rails_helper'
