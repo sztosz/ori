@@ -1,5 +1,5 @@
 # Change these
-server '128.199.38.139', port: 3000, roles: [:web, :app, :db], primary: true
+server '128.199.38.139', port: '22', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@bitbucket.org:sztosz/ori.git'
 set :application,     'ori'
