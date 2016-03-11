@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'dump_table/index'
+  get 'dump_table/search'
+  post 'dump_table/search'
+
   root to: 'visitors#index'
 
   devise_for :users

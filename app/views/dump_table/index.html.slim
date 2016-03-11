@@ -1,0 +1,27 @@
+ol.breadcrumb
+  li = link_to 'Home', root_path
+  li.active Dumps
+
+.row.col-md-12
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th BRAND
+        th BODY
+        th ENGINE
+        th ECU
+        th HW
+        th SW
+        th SIZE
+        th DOWNLOAD
+    tbody
+      - for dump in @dumps do
+        tr
+          td = dump.ecu.engine.body.brand.name
+          td = dump.ecu.engine.body.name
+          td = dump.ecu.engine.name
+          td = dump.ecu.name
+          td = dump.hw
+          td = dump.sw
+          td Size
+          td = link_to :Download, brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), class: 'btn btn-default'
