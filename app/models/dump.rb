@@ -14,12 +14,19 @@
 
 class Dump < ActiveRecord::Base
   belongs_to :ecu
-  validates :hw, :sw, :content, :content_size, :ecu_id, presence: true
+  validates :content, :content_size, :ecu_id, presence: true
   validates :content, file_size: { less_than: 5.megabytes }
 
   mount_uploader :content, DumpUploader
 
-  before_validation :set_content_size, on: :create
+  before_validation :set_content_size, on: [:create, :update]
+
+  scope :search_hw, -> (query) { where('hw ILIKE ?', "%#{query}%") if query.present? }
+  scope :search_sw, -> (query) { where('sw ILIKE ?', "%#{query}%") if query.present? }
+  scope :search_ecu, -> (query) { joins(:ecu).where('ecus.name ILIKE ?', "%#{query}%") if query.present? }
+  scope :search_engine, -> (query) { joins(ecu: :engine).where('engines.name ILIKE ?', "%#{query}%") if query.present? }
+  scope :search_body, -> (query) { joins(ecu: { engine: :body }).where('bodies.name ILIKE ?', "%#{query}%") if query.present? }
+  scope :search_brand, -> (query) { joins(ecu: { engine: { body: :brand } }).where('brands.name ILIKE ?', "%#{query}%") if query.present? }
 
   private
 

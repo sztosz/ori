@@ -1,0 +1,28 @@
+.row.col-md-12
+  button.btn.btn-primary type='button' data-toggle="collapse" data-target="#collapseSearchForm" aria-expanded="false" aria-controls="collapseSearchForm" Search Form
+
+.row.col-md-12.collapse#collapseSearchForm
+  .well
+    = form_tag dump_table_search_path, class: 'form-horizontal' do
+      .row
+        .col-md-6
+          = label_tag :search_hw, 'HW'
+          = text_field_tag :search_hw, params[:search_hw], { placeholder: 'HW', class: 'form-control' }
+        .col-md-6
+          = label_tag :search_hw, 'SW'
+          = text_field_tag :search_sw, params[:search_sw], { placeholder: 'SW', class: 'form-control' }
+      .row
+        .col-md-6
+          = label_tag :search_hw, 'ECU'
+          = text_field_tag :search_ecu, params[:search_ecu], { placeholder: 'ECU', class: 'form-control' }
+        .col-md-6
+          = label_tag :search_hw, 'ENGINE'
+          = text_field_tag :search_engine, params[:search_engine], { placeholder: 'ENGINE', class: 'form-control' }
+      .row
+        .col-md-6
+          = label_tag :search_hw, 'BODY'
+          = text_field_tag :search_body, params[:search_body], { placeholder: 'BODY', class: 'form-control' }
+        .col-md-6
+          = label_tag :search_hw, 'BRAND'
+          = text_field_tag :search_brand, params[:search_brand], { placeholder: 'BRAND', class: 'form-control' }
+      = submit_tag 'Search', class: 'btn btn-default'
