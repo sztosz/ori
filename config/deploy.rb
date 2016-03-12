@@ -1,3 +1,5 @@
+# rubocop:disable all
+
 # Change these
 server '128.199.38.139', port: '22', roles: [:web, :app, :db], primary: true
 

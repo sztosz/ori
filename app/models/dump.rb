@@ -25,8 +25,12 @@ class Dump < ActiveRecord::Base
   scope :search_sw, -> (query) { where('sw ILIKE ?', "%#{query}%") if query.present? }
   scope :search_ecu, -> (query) { joins(:ecu).where('ecus.name ILIKE ?', "%#{query}%") if query.present? }
   scope :search_engine, -> (query) { joins(ecu: :engine).where('engines.name ILIKE ?', "%#{query}%") if query.present? }
-  scope :search_body, -> (query) { joins(ecu: { engine: :body }).where('bodies.name ILIKE ?', "%#{query}%") if query.present? }
-  scope :search_brand, -> (query) { joins(ecu: { engine: { body: :brand } }).where('brands.name ILIKE ?', "%#{query}%") if query.present? }
+  scope :search_body, lambda { |query|
+    joins(ecu: { engine: :body }).where('bodies.name ILIKE ?', "%#{query}%") if query.present?
+  }
+  scope :search_brand, lambda { |query|
+    joins(ecu: { engine: { body: :brand } }).where('brands.name ILIKE ?', "%#{query}%") if query.present?
+  }
 
   private
 
