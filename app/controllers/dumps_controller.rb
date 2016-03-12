@@ -31,7 +31,7 @@ class DumpsController < ApplicationController
   def create
     @dump = Dump.new dump_params
     authorize @dump
-    if @dump.save!
+    if @dump.save
       redirect_to action: 'index'
     else
       render :new

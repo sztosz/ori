@@ -27,7 +27,7 @@ class EnginesController < ApplicationController
   def create
     @engine = Engine.new engine_params
     authorize @engine
-    if @engine.save!
+    if @engine.save
       redirect_to action: 'index'
     else
       render :new
