@@ -1,4 +1,5 @@
 class DumpTableController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index, :search]
   def initialize
     @dump = Dump.new
     super

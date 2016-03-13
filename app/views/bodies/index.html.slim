@@ -6,8 +6,9 @@ ol.breadcrumb
 .row.col-md-12
   p.lead = @brand.name
 
-.row.col-md-12
-  = link_to :new, new_brand_body_path, { class: 'btn btn-primary' }
+- if policy(@bodies).create?
+  .row.col-md-12
+    = link_to :new, new_brand_body_path, { class: 'btn btn-primary' }
 
 .row.col-md-12
   table.table.table-striped.table-hover
@@ -16,13 +17,17 @@ ol.breadcrumb
         th ID
         th Name
         th Engines
-        th Edit
-        th Remove
+        - if policy(@bodies).edit?
+          th Edit
+        - if policy(@bodies).destroy?
+          th Remove
     tbody
       - for body in @bodies do
         tr
           td = body.id
           td = body.name
           td = link_to :Engines, brand_body_path(body.brand, body), class: 'btn btn-default'
-          td = link_to :Edit, edit_brand_body_path(body.brand, body), class: 'btn btn-primary'
-          td = link_to :Remove, brand_body_path(body.brand, body), method: :delete, class: 'btn btn-danger'
+          - if policy(@bodies).edit?
+            td = link_to :Edit, edit_brand_body_path(body.brand, body), class: 'btn btn-primary'
+          - if policy(@bodies).destroy?
+            td = link_to :Remove, brand_body_path(body.brand, body), method: :delete, class: 'btn btn-danger'

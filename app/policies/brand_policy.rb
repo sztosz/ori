@@ -1,21 +1,21 @@
 class BrandPolicy < ApplicationPolicy
   def new?
-    create?
+    @user.nil? ? false : @user.admin?
   end
 
   def create?
-    @user.admin?
+    new?
   end
 
   def edit?
-    update?
+    new?
   end
 
   def update?
-    @user.admin?
+    new?
   end
 
   def destroy?
-    @user.admin?
+    new?
   end
 end

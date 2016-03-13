@@ -20,6 +20,7 @@ class DumpsController < ApplicationController
 
   def show
     dump = Dump.find params[:id]
+    authorize dump
     send_data dump.content.file.read, filename: "#{dump.hw}-#{dump.sw}"
   end
 

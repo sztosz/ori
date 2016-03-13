@@ -9,8 +9,9 @@ ol.breadcrumb
 .row.col-md-12
   p.lead = @ecu.name
 
-.row.col-md-12
-  = link_to :new, new_brand_body_engine_ecu_dump_path, { class: 'btn btn-primary' }
+- if policy(@dumps).create?
+  .row.col-md-12
+    = link_to :new, new_brand_body_engine_ecu_dump_path, { class: 'btn btn-primary' }
 
 .row.col-md-12
   table.table.table-striped.table-hover
@@ -20,8 +21,10 @@ ol.breadcrumb
         th HW
         th SW
         th Download
-        th Edit
-        th Remove
+        - if policy(@dumps).edit?
+          th Edit
+        - if policy(@dumps).destroy?
+          th Remove
     tbody
       - for dump in @dumps do
         tr
@@ -29,5 +32,7 @@ ol.breadcrumb
           td = dump.hw
           td = dump.sw
           td = link_to :Download, brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), class: 'btn btn-default'
-          td = link_to :Edit, edit_brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), class: 'btn btn-primary'
-          td = link_to :Remove, brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), method: :delete, class: 'btn btn-danger'
+          - if policy(@dumps).edit?
+            td = link_to :Edit, edit_brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), class: 'btn btn-primary'
+          - if policy(@dumps).destroy?
+            td = link_to :Remove, brand_body_engine_ecu_dump_path(dump.ecu.engine.body.brand, dump.ecu.engine.body, dump.ecu.engine, dump.ecu, dump), method: :delete, class: 'btn btn-danger'
