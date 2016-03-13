@@ -2,8 +2,8 @@ ol.breadcrumb
   li = link_to 'Home', root_path
   li = link_to 'Brands', brands_path
   li = link_to 'Bodies', brand_bodies_path(@ecu.engine.body)
-  li = link_to 'Engines', brand_body_engines_path(@ecu.engine.body.brand, @ecu.engine.body, @ecu.engine)
-  li = link_to 'Ecus', brand_body_engine_ecus_path(@ecu.engine.body.brand, @ecu.engine.body, @ecu.engine, @ecu)
+  li = link_to 'Engines', brand_body_engines_path(@ecu.engine.body.brand, @ecu.engine.body)
+  li = link_to 'Ecus', brand_body_engine_ecus_path(@ecu.engine.body.brand, @ecu.engine.body, @ecu.engine)
   li.active Dumps
 
 .row.col-md-12
