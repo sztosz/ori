@@ -5,7 +5,9 @@ ol.breadcrumb
   li.active Engines
 
 .row.col-md-12
-  p.lead = @body.name
+  p.lead
+   => @body.brand.name
+   = @body.name
 
 - if policy(@engines).create?
   .row.col-md-12

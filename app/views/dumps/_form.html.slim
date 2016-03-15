@@ -1,5 +1,13 @@
-= simple_form_for [@dump.ecu.engine.body.brand, @dump.ecu.engine.body, @dump.ecu.engine, @dump.ecu, @dump], multipart: true do |f|
-  = f.input :hw, label: 'HW'
-  = f.input :sw, label: 'SW'
-  = f.input :content, as: :file, label: 'File'
-  = f.button :submit, class: 'btn-primary'
+.row.col-md-12
+  p.lead
+   => @dump.ecu.engine.body.brand.name
+   => @dump.ecu.engine.body.name
+   => @dump.ecu.engine.name
+   => @dump.ecu.name
+
+.row.col-md-12
+  = simple_form_for [@dump.ecu.engine.body.brand, @dump.ecu.engine.body, @dump.ecu.engine, @dump.ecu, @dump], multipart: true do |f|
+    = f.input :hw, label: 'HW'
+    = f.input :sw, label: 'SW'
+    = f.input :content, as: :file, label: 'File'
+    = f.button :submit, class: 'btn-primary'

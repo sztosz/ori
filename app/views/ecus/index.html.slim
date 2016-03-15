@@ -6,7 +6,10 @@ ol.breadcrumb
   li.active Ecu
 
 .row.col-md-12
-  p.lead = @engine.name
+  p.lead
+   => @engine.body.brand.name
+   => @engine.body.name
+   = @engine.name
 
 - if policy(@ecus).create?
   .row.col-md-12

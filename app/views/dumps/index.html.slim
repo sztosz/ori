@@ -7,7 +7,11 @@ ol.breadcrumb
   li.active Dumps
 
 .row.col-md-12
-  p.lead = @ecu.name
+  p.lead
+   => @ecu.engine.body.brand.name
+   => @ecu.engine.body.name
+   => @ecu.engine.name
+   => @ecu.name
 
 - if policy(@dumps).create?
   .row.col-md-12
